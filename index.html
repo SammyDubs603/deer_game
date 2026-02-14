@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buck Blitz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <canvas id="gameCanvas" width="960" height="540" aria-label="Buck Blitz game canvas"></canvas>
+
+    <section id="titleScreen" class="overlay visible">
+      <h1>Buck Blitz</h1>
+      <p class="subtitle">Arcade Deer Gallery (Stylized, Non-Gory)</p>
+      <label>
+        Hunter Name (optional)
+        <input id="playerName" type="text" maxlength="20" placeholder="Rookie Ranger" />
+      </label>
+      <button id="playBtn">Play</button>
+      <div class="instructions">
+        <h2>Instructions</h2>
+        <ul>
+          <li>Aim with mouse, click to shoot.</li>
+          <li><strong>Buck:</strong> +100 (<strong>Big antlers:</strong> +150)</li>
+          <li><strong>Golden Buck:</strong> +500 (rare + very fast)</li>
+          <li><strong>Doe:</strong> -200 and +1 Strike</li>
+          <li>Miss shot: -25</li>
+          <li>3 Strikes = Game Over, or when timer hits 0.</li>
+          <li>Reload with <kbd>R</kbd> (auto when empty).</li>
+          <li>Upgrade choice every 15s with keys <kbd>1</kbd>/<kbd>2</kbd>/<kbd>3</kbd>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="upgradeOverlay" class="overlay">
+      <h2>Choose Upgrade</h2>
+      <p>Press 1 / 2 / 3</p>
+      <ol>
+        <li><strong>1:</strong> Faster reload</li>
+        <li><strong>2:</strong> Bigger magazine</li>
+        <li><strong>3:</strong> Slow-time on hit (2s, 10s cooldown)</li>
+      </ol>
+    </section>
+
+    <section id="gameOverScreen" class="overlay">
+      <h2>Game Over</h2>
+      <p id="finalScore"></p>
+      <p id="accuracy"></p>
+      <p id="highScore"></p>
+      <button id="playAgainBtn">Play Again</button>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
